@@ -1,0 +1,35 @@
+Knex.js is a lightweight SQL query builder that makes it easy to create,
+read, update and delete data in databases from a Node.js application. 
+We will use Knex for this purpose, but it also has a key feature called
+migrations. Migrations can be thought of as "source control for your database".
+They allow you to define sets of schema changes that you can apply to any database
+and bring it up to date, e.g., migrate it to the desired state.
+
+By using migrations, we'll keep a running history of all changes to our database
+in a set of source migration files. Migrations can be used for all database 
+structural changes such as adding and dropping tables and columns. The Knex 
+migration tooling automatically tracks and applies migrations that are set up 
+in migration files.
+
+npx express-generator --no-view
+npm i knex -g
+npm i knex pg
+knex migrate:make create_lunch_week_table  
+knex migrate:up
+
+SQL COMMANDS
+- schemas
+- tables, lunch_week
+
+select * from lunch_week
+- insert test data: 
+insert into lunch_week
+	(week_of, is_published)
+values
+	('2020-10-05', true),
+	('2020-10-12', true),
+	('2020-10-19', false),
+	('2020-10-26', false),
+	('2020-11-02', false)
+
+knex migrate:make create_lunch_day_table
